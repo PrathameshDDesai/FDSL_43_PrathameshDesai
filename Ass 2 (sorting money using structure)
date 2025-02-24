@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+struct Banknote {
+    int value;
+    char name[20]; 
+};
+
+int main() {
+    int n, i, j, temp, sum = 0;
+
+    struct Banknote b[20];
+
+    printf("How many different number of People are there? ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("\tEnter the INFO of %d\n", i + 1);
+        printf("\tEnter the Name  : ");
+        scanf("%s", b[i].name);  
+
+        printf("\tEnter the Money you have : ");
+        scanf("%d", &b[i].value);
+    }
+
+    
+    for(i = 0; i < n - 1; i++) {
+        for(j = 0; j < n - (i - 1); j++) {
+            if(b[j].value > b[j + 1].value) {
+                
+                temp = b[j].value;
+                b[j].value = b[j + 1].value;
+                b[j + 1].value = temp;
+
+            
+                char tempName[20];
+                strcpy(tempName, b[j].name);
+                strcpy(b[j].name, b[j + 1].name);
+                strcpy(b[j + 1].name, tempName);
+            }
+        }
+    }
+
+    
+    printf("\nAfter arranging by money:\n");
+    for(i = 0; i < n; i++) {
+        printf("%d. Name: %s\n . Money: %d\n", i + 1, b[i].name, b[i].value);
+    }
+
+    
+    for(i = 0; i < n; i++) {
+        sum += b[i].value;
+    }
+
+    printf("\nThe total sum is: %d\n", sum);
+
+    return 0;
+}
