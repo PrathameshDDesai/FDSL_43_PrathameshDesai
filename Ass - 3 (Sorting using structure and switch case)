@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <string.h>
+struct student {
+    int marks;
+    int roll_no;
+    char name[20]; 
+};
+
+int main() {
+    int n, i, j,  d , o,  temp,ch , h ,  sum = 0;
+
+    struct student s[20];
+
+    printf("How many Number of student are their  : ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+     {
+        printf("\tEnter the INFO of %d\n", i + 1);
+        printf("\tEnter the Roll NO   : ");
+        scanf("%d", &s[i].roll_no);  
+        printf("\tEnter the Name   : ");
+        scanf("%s", s[i].name); 
+         printf("\tEnter the marks  : ");
+        scanf("%d", &s[i].marks);  
+
+      }
+      	do
+ 		 {
+ 		 	printf("The Menu \n\t 1. Sorting using Bubble sorting\n\t 2. Sorting using selection sorting\n\t 3.Display \n\t 4.Exit  \n\t Enter the choice :   ");
+ 		 	scanf("%d", &ch);
+ 		 	switch(ch)
+ 		 	{
+		 	case 1 :	do
+ 		 				{ 
+		 	printf("The Menu \n\t 1. Sort with  Roll number\n\t 2. Sort with marks \n\t 3.  Sort with Name\n\t 4.Exit  \n\t Enter the choice :   ");
+		 	scanf("%d", &h);
+ 		 	switch(h)
+ 		 	{
+		 	case 1 :
+					for(i=0 ; i<n-1 ; i++) 
+					{
+					for(j=0 ; j<n-(i+1) ; j++)
+					{
+					if(s[j].roll_no>s[j+1].roll_no )
+					{
+					temp=s[j].roll_no ; 
+					s[j].roll_no = s[j+1].roll_no ; 
+					s[j+1].roll_no = temp ;
+					
+					 char tempName[20];
+					 strcpy(tempName, s[j].name);
+                			strcpy(s[j].name, s[j + 1].name);
+                			strcpy(s[j + 1].name, tempName);
+                			
+                			temp=s[j].marks ; 
+					s[j].marks = s[j+1].marks ; 
+					s[j+1].marks = temp ;
+					}
+					}
+					}
+					}
+					break ;
+					 printf("\nDO you want to contine(1/0)");
+					scanf("%d", &o); 
+ 		} while(o!=0);
+ 		
+			case 2 :         printf("\nAfter arranging by Roll no :\n");
+    					for(i = 0; i < n; i++)
+    					 {
+        				printf("%d. Roll No: %d\n . Name : %s\n . Marks  : %d\n", i + 1,  s[i].roll_no, s[i].name, s[i].marks);		
+  						}
+  						}
+						
+						
+	  
+   
+    printf("\nDO you want to contine(1/0)");
+ 		 	scanf("%d", &d); 
+ 		} while(d!=0);
+ 		}
+    
+		
+        
+        
+        
+        
+        
+        
