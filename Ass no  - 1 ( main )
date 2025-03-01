@@ -1,0 +1,390 @@
+#include <stdio.h>
+
+struct book {
+    char book_name[50]; 
+    int book_price;
+};
+
+void main() {
+    struct book b[20];
+    int n, ch, d, i, p;
+
+    printf("\nEnter the number of books: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("\tEnter details for book number %d\n", i + 1);
+        printf("\tEnter the book name: ");
+        scanf("%s", b[i].book_name);
+        printf("\tEnter the book price: ");
+        scanf("%d", &b[i].book_price);
+    }
+
+    do {
+        printf("\nMenu:\n\t1. Add new records\n\t2. Display the records\n\t3. Update a record\n\t4. Delete a record\n\t5. Exit\n\tEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch) {
+            case 1:
+                printf("Enter position to insert new book: ");
+                scanf("%d", &p);
+                for (i = n; i >= p; i--) {
+                    b[i] = b[i - 1];
+                }
+                printf("\nEnter details for book number %d\n", p);
+                printf("Enter the book name: ");
+                scanf("%s", b[p - 1].book_name);
+                printf("Enter the book price: ");
+                scanf("%d", &b[p - 1].book_price);
+                n++;
+                printf("Record added successfully.\n");
+                break;
+
+            case 2:
+                for (i = 0; i < n; i++) {
+                    printf("\n\tBook number %d\n", i + 1);
+                    printf("\tBook name: %s\n", b[i].book_name);
+                    printf("\tBook price: %d\n", b[i].book_price);
+                }
+                break;
+
+            case 3:
+                printf("Enter position to update: ");
+                scanf("%d", &p);
+                printf("Enter new book name: ");
+                scanf("%s", b[p - 1].book_name);
+                printf("Enter new book price: ");
+                scanf("%d", &b[p - 1].book_price);
+                printf("Record updated successfully.\n");
+                break;
+
+            case 4:
+                printf("Enter position to delete: ");
+                int e;
+                scanf("%d", &e);
+                for (i = e - 1; i < n - 1; i++) {
+                    b[i] = b[i + 1];
+                }
+                n--;
+                printf("Record deleted successfully.\n");
+                break;
+        }
+        printf("\nDo you want to continue? (1/0): ");
+        scanf("%d", &d);
+    } while (d != 0);
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Enter the number of books: 3
+
+Enter details for book number 1
+
+Enter the book name: op
+
+Enter the book price: 100
+
+Enter details for book number 2
+
+Enter the book name: qw
+
+Enter the book price: 0990
+
+Enter details for book number 3
+
+Enter the book name: mn
+
+Enter the book price: 76
+
+Menu:
+
+I
+
+82°F
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 1
+
+Enter position to insert new book: 1
+
+Enter details for book number 1
+
+Enter the book name: iu
+
+Enter the book price: 9888
+
+Record added successfully.
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 2
+
+Book number 1
+
+Book name: iu
+Book price:
+
+9888
+
+Book number 2
+
+Book name: op
+
+Book price: 100
+
+Book number 3
+
+Book name: qw
+
+Book price: 990
+
+Book number 4
+
+Book name: mn
+
+Book price: 76
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 1
+
+Enter position to insert new book: 1
+
+Enter details for book number 1
+
+Enter the book name: yyy
+
+Enter the book price: 1999
+
+Record added successfully.
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+6. Enter your choice: 2
+
+Book number 1
+
+Book name: yyy
+
+Book price: 1999
+
+Book number 2
+
+Book name: iu
+
+Book price: 9888
+
+Book number 3
+
+Book name: op
+
+Book price:
+
+100
+
+Book number 4
+
+Book name: qw
+
+Book price:
+
+990
+
+Book number 5
+
+Book name: mn
+
+Book price: 76
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 3
+
+Enter position to update: 3
+
+Enter new book name: po
+
+Enter new book price: 99999
+
+Record updated successfully.
+
+Do you want to continue? (1/0): 1
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 2
+
+Book number 1
+
+Book name: yyy
+
+Book price: 1999
+
+Book number 2
+
+Book name: iu
+
+Book price: 9888
+
+Book number 3
+
+Book name: po
+
+Book price: 99999
+
+Book number 4
+
+Book name: qw
+
+Book price: 990
+
+Book number 5
+
+Book name: mn
+
+Book price: 76
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3, Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 4
+
+Enter position to delete: 2
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 2
+
+Book number 1
+
+Book name: yyy
+
+Book price: 1999
+
+Book number 2
+
+Book name: po
+
+Book price: 99999
+
+Book number 3
+
+Book name: qw
+
+Book price: 990
+
+Book number 4
+
+Book name: mn
+
+Book price: 76
+
+Do you want to continue? (1/0): 1
+
+Menu:
+
+1. Add new records
+
+2. Display the records
+
+3. Update a record
+
+4. Delete a record
+
+5. Exit
+
+Enter your choice: 5
+
+Do you want to continue? (1/0):
+
+
+
+
