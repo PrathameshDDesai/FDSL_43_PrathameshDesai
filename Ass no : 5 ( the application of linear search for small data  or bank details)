@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+struct Banknote {
+    int value;
+    int acc ;
+    char name[20];
+    
+};
+
+int main() {
+    int n, i, j, d ,  found = 0  ;
+int key ;
+    struct Banknote b[20];
+
+    printf("How many different number of People are there? :-");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++) {
+        printf("\tEnter the INFO of %d\n", i + 1);
+  	     
+        printf("\tEnter the Name  : ");
+        scanf("%s", b[i].name);  
+	printf("\tEnter the account number  : ");
+        scanf("%d", &b[i].acc); 
+        printf("\tEnter the Money you have : ");
+        scanf("%d", &b[i].value);
+    }
+do
+ 		 {
+   printf("\nEnter the account number  you want to find ?  :- ");
+	scanf("%d",&key );
+	
+		for(i=0 ; i<n ; i++) 
+		{
+		if(key == b[i].acc)
+		{
+		printf("\n");
+		printf("The Account number is  %d .\n" , b[i].acc);
+		printf("The Account Holder name %s .\n" ,b[i].name);
+		printf("The Account Holder TOTAL balance is  %d .\n" ,b[i].value);
+		found = 1 ; 
+		break ;
+		}
+		
+		}
+		if(found==0)
+		{
+		
+		printf("The Account  is not found  at any  position " );
+		}
+		
+		printf("\nDO you want to contine and search for another(1/0)");
+ 		 	scanf("%d", &d); 
+ 		} while(d!=0);
+                      
+    
+   
+    return 0;
+}
+
+	
