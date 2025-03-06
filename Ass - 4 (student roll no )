@@ -1,0 +1,40 @@
+#include<stdio.h>
+int main()
+{
+int n, i, j , k ,temp , a[20] ;
+
+	printf("How many number of Student roll.no ");
+	scanf("%d",&n );
+	printf("Enter the Roll.no \n");
+	for(i=0 ; i<n ; i++ ) 
+	{
+	scanf("%d",&a[i] );
+	}
+	printf(" The Roll.no are:");
+	for(i=0 ; i<n ; i++ ) 
+	{
+	printf("\n %d :- %d", i+1 , a[i] );
+	}
+	
+		for(i=1 ; i<n ; i++) 
+		{
+		for(j=0 ; j<i ; j++)
+		{
+		if(a[j]>a[i])
+		{
+		temp=a[i] ; 
+		for(k =i-1 ; k>=j ; k-- )
+		{
+		a[k+1] =a[k]; 
+		}
+		a[j] = temp ;
+		}
+		}
+		}
+	printf("\n After arranging  the Roll.no are  : ");
+	for(i=0 ; i<n ; i++) 
+	{
+	printf("\n %d :- %d",i+1, a[i]);
+	}
+	return 0 ; 
+	}
