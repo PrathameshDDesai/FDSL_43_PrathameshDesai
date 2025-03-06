@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main()
+{
+int n, i, key  , d ,  a[20] ;
+int found= 0 ;
+	printf("How many number of Student roll.no ");
+	scanf("%d",&n );
+	printf("Enter the Roll.no \n");
+	for(i=0 ; i<n ; i++ ) 
+	{
+	scanf("%d",&a[i] );
+	}
+	printf(" The Roll.no are:");
+	for(i=0 ; i<n ; i++ ) 
+	{
+	printf("\n %d :- %d", i+1 , a[i] );
+	}
+	
+ 		do
+ 		 {
+	printf("\nEnter the roll number you want to find ?  :- ");
+	scanf("%d",&key );
+	
+		for(i=0 ; i<n ; i++) 
+		{
+		if(key == a[i])
+		{
+		printf("\n");
+		printf("the roll no is found  at position %d !!!!.\n" , i+1 );
+		found = 1 ; 
+		break ;
+		}
+		
+		}
+		if(found==0)
+		{
+		
+		printf("The roll no is not found  at any  position " );
+		}
+		
+		printf("\nDO you want to contine(1/0)");
+ 		 	scanf("%d", &d); 
+ 		} while(d!=0);
+                      
+	
+	return 0 ; 
+	}
