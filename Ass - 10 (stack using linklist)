@@ -1,0 +1,88 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+	int data;
+	struct node *next;
+};
+struct node *top = NULL, *temp, *newnode;
+void push(int data)
+{
+	newnode = malloc(sizeof(struct node));
+	newnode->data = data;
+	printf("Element %d is pushed in stack\n\n",data);
+	if(top == NULL)
+	{
+        	top = newnode;
+        	newnode->next = NULL;
+    	} 
+    	else 
+    	{
+        	temp = top;
+        	top = newnode;
+        	newnode->next = temp;
+    	}	
+}
+void pop() 
+{
+	if(top == NULL)
+	{
+        	printf("Stack is empty\n\n");
+    	} 
+    	else 
+    	{
+        	temp = top;
+        	top = top->next;
+        	printf("Element %d is popped\n\n",temp->data);
+        	free(temp);
+        	temp->next=NULL;
+    	}
+}
+void display() 
+{
+    	if(top == NULL)
+    	{
+        	printf("Stack is empty.\n\n");
+    	} 
+    	else 
+    	{
+        	temp = top;
+        	while(temp != NULL)
+        	{
+        		printf("%d\t", temp->data);
+            		temp = temp->next;
+        	}
+        	printf("\n\n");
+    	}
+}
+int main()
+{
+	int choice, data;
+	printf("*****Welcome to Stack Using Linked-list*****\n");
+	do 
+	{
+        	printf("1. PUSH(insert) element\n2. POP(delete) element\n3. Display\n4. Exit\n");
+        	printf("Enter your choice: ");
+        	scanf("%d", &choice);
+        	switch(choice)
+        	{
+        		case 1:
+               			printf("Enter data: ");
+                		scanf("%d", &data);
+                		push(data);
+                		break;
+            		case 2:
+               			pop();
+                		break;
+            		case 3:
+                		display();
+                		break;
+            		case 4:
+            			printf("Exiting...\n");
+                		break;
+            		default:
+                		printf("Invalid choice.\n");
+        	}
+    	}while(choice != 4);
+   	return 0;
+}
